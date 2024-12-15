@@ -1,0 +1,128 @@
+/* Center the whole game in the viewport */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+/* This container holds the game */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+/* Game title styling */
+.game-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #383535;
+}
+
+/* The actual game container */
+.game {
+  width: 1000px;
+  height: 400px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #968585;
+  padding: 20px;
+  position: relative;
+}
+
+/* Dino sprite styling */
+#dino {
+  width: 80px;
+  height: 80px;
+  background-image: url(img/trex.png);
+  background-size: 80px 80px;
+  position: relative;
+  top: 230px;
+}
+
+/* Jump animation */
+.jump {
+  animation: jump 0.3s linear;
+}
+
+@keyframes jump {
+  0% {
+    top: 180px;
+  }
+
+  30% {
+    top: 50px;
+  }
+
+  50% {
+    top: 10px;
+  }
+
+  80% {
+    top: 50px;
+  }
+
+  100% {
+    top: 180px;
+  }
+}
+
+/* Cactus styling with animation */
+#cactus {
+  width: 40px;
+  height: 80px;
+  position: relative;
+  top: 170px;
+  left: 930px;
+  background-image: url("img/cactus.png");
+  background-size: 40px 80px;
+  animation: none;
+}
+
+@keyframes block {
+  0% {
+    left: 1030px;
+  }
+
+  100% {
+    left: -140px;
+  }
+}
+
+/* Footer styling */
+.game-footer {
+  margin-top: 150px;
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+}
+
+/* Start button container styling */
+.start-button-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.start-button {
+  padding: 20px 40px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}

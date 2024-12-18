@@ -1,13 +1,21 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import Signup from "./Signup";
+import Leaderboard from "./Leaderboard";
 import ChessGame from "./ChessGame";
-import "./styles.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <ChessGame />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/chessgame" element={<ChessGame />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

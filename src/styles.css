@@ -1,0 +1,55 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full viewport height and width */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #f8f9fa; /* Light background */
+}
+
+/* Container for the chessboard and buttons */
+.chessboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Horizontal centering */
+  justify-content: center; /* Vertical centering */
+}
+
+/* Title styling */
+.title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+/* Chessboard styling */
+.react-chessboard {
+  margin: 0 auto; /* Ensure chessboard centers within its container */
+}
+
+/* Undo Button */
+.undo-button {
+  margin-top: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.undo-button:hover {
+  background-color: #e5533d;
+}

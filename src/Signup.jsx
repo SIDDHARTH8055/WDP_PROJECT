@@ -12,7 +12,7 @@ const Signup = () => {
   const [avatarUrl, setAvatarUrl] = useState(""); // Profile avatar URL
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
       // Set up the GraphQL mutation variables
@@ -30,16 +30,21 @@ const Signup = () => {
       // Send the request using graphqlClient
       const response = await graphqlClient.request(CREATE_PLAYER, variables);
 
-      if (response.createPlayer) {
-        // Save token or other necessary data to localStorage or state
+      // Check if player was created successfully and the response contains a token
+      if (response.createPlayer && response.createPlayer.token) {
+        const { token } = response.createPlayer; // Get the JWT from the server response
+
+        // Store the token in localStorage
+        localStorage.setItem("token", token);
+
+        // Alert the user and redirect to the game page
         alert("Player created successfully!");
-        localStorage.setItem("token", process.env.JWT_Secret); // Example token, replace with actual JWT
         navigate("/chessgame"); // Redirect to chess game
       } else {
         alert("Error: " + response.message);
       }
     } catch (err) {
-      console.error("Login error:", err);
+      console.error("Signup error:", err);
       alert("Error while creating player!");
     }
   };
@@ -47,7 +52,7 @@ const Signup = () => {
   return (
     <div>
       <h2>Signup Page</h2>
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleSignup}>
         <input
           type="text"
           placeholder="Username"
